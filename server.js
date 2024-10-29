@@ -1,12 +1,12 @@
 const { MongoClient } = require('mongodb');
 const express = require('express');
-const { DNS } = require('dns2'); // Keep this import
+const { DNS } = require('dns2'); // Correct import of DNS
 
 const app = express();
 const port = 3000;
 
-// Create an instance of the DNS resolver
-const dns = new DNS(); // Correct way to instantiate DNS
+// Create a DNS resolver (no need to instantiate)
+const dns = DNS; // Use DNS directly
 
 const mongoHost = "depedinfostorage.mongodb.net";
 const mongoUriTemplate = "mongodb://angelesedgardo17:dNjeAKovMY0psOmU@{ip}/myusers?retryWrites=true&w=majority";
