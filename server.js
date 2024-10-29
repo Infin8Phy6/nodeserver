@@ -22,7 +22,7 @@ async function connectToMongoDB() {
 connectToMongoDB();
 
 // Log the API_KEY to verify it's loaded
-console.log('API_KEY:', process.env.MONGODB_USERNAME);
+console.log('API_KEY:', process.env.MONGODB_URI);
 
 // Define a basic route
 app.get('/', (req, res) => {
