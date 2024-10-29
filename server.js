@@ -1,19 +1,20 @@
 const { MongoClient } = require('mongodb');
 const express = require('express');
-const { DNS } = require('dns2');
+const { DNS } = require('dns2'); // Keep this import
 
 const app = express();
 const port = 3000;
 
-// Set up DNS resolver using dns2
-const dns = new DNS();
+// Create an instance of the DNS resolver
+const dns = new DNS(); // Correct way to instantiate DNS
+
 const mongoHost = "depedinfostorage.mongodb.net";
 const mongoUriTemplate = "mongodb://angelesedgardo17:dNjeAKovMY0psOmU@{ip}/myusers?retryWrites=true&w=majority";
 
 async function resolveMongoHost() {
     try {
         // Resolve MongoDB hostname to an IP address
-        const response = await dns.resolveA(mongoHost);
+        const response = await dns.resolveA(mongoHost); // Using resolveA for A records
         const ipAddress = response.answers[0]?.address;
 
         if (!ipAddress) throw new Error("Failed to resolve MongoDB host IP.");
